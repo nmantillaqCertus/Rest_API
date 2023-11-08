@@ -1,14 +1,19 @@
 const express =  require('express');
 const mongoose =  require('mongoose');
+const cors = require('cors');
+
 require('dotenv').config();
 const rol_Service = require('./service/rol_service');
+const usuario_Service = require('./service/usuario_service');
 
 const app = express();
 const port = 8000;
 
-//Invocando nuestro servicio de roles
+//Mapeando las rutas de los servicios
+app.use(cors({origin:'*'}));
 app.use(express.json());
 app.use('/api',rol_Service);
+app.use('/api',usuario_Service);
 
 //Rutas
 app.get('/',(req, res)=>{
