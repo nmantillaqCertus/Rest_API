@@ -11,6 +11,7 @@ const port = 8000;
 
 //Mapeando las rutas de los servicios
 app.use(cors({origin:'*'}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use('/api',rol_Service);
 app.use('/api',usuario_Service);
